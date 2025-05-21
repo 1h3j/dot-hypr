@@ -1,0 +1,13 @@
+dwindle {
+  pseudotile = true
+  preserve_split = true
+
+  force_split = 0
+
+  default_split_ratio = 0.61803398875 # Golden Ratio lmaooooooo
+  split_width_multiplier = 1
+}
+
+master {
+  new_status = master
+}

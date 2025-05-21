@@ -1,0 +1,23 @@
+Hyprland Ecosystem
+  - Hyprshot
+  - Hyprpolkit agent
+
+External Programs
+  - Kitty
+  - Wofi
+    - wofi-emoji
+  - Playerctl
+  - Thunar
+  - Dunst
+  - EWW
+    - Hyprline
+  - Waybar
+  - Neovim
+  - Neovide
+
+Themes
+  - Bibata
+
+Plugins
+  - Hyprbars (https://github.com/hyprwm/hyprland-plugins)
+  - Dynamic Cursors (https://github.com/VirtCode/hypr-dynamic-cursors)

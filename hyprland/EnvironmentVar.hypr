@@ -1,0 +1,13 @@
+env = XCURSOR_SIZE,46
+env = XCURSOR_THEME,Bibata-Modern-Classic
+env = HYPRCURSOR_SIZE,46
+env = HYPRCURSOR_THEME,ibata-Modern-Classic
+
+env = ELECTRON_OZONE_PLATFORM_HINT,wayland
+env = XDG_CURRENT_DESKTOP,Hyprland
+
+# env = QT_QPA_PLATFORM,wayland
+# env = QT_QPA_DESKTOP,Hyprland
+# env = QT_QPA_PLATFORMTHEME,qt5ct
+# env = QT_WAYLAND_DISABLE_WINDOWDECORATION,1
+# env = QT_STYLE_OVERRIDE,kvantum

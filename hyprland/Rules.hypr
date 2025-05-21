@@ -1,0 +1,14 @@
+windowrulev2 = size 1024 768,class:^(neovide)$
+windowrulev2 = float,class:^(neovide)$
+
+windowrulev2 = noblur,class:^()$,title:^()$
+
+windowrulev2 = suppressevent maximize, class:.*
+
+windowrulev2 = immediate, class:.*
+
+windowrulev2 = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
+
+layerrule = noanim, waybar
+layerrule = xray 1, waybar
+

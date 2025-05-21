@@ -1,0 +1,21 @@
+exec-once = wbg ~/Pictures/wallpaper.png
+exec-once = systemctl --user start hyprpolkitagent
+
+exec-once = paplay ~/.config/hypr/startup.wav
+
+exec-once = otd-daemon
+
+exec-once = hyprctl setcursor Bibata-Modern-Classic 46
+
+exec-once = hyprpm reload -n
+
+exec-once = waybar
+
+workspace = 1, persistent:true, monitor:eDP-1
+workspace = 3, persistent:true, monitor:eDP-1
+workspace = 4, persistent:true, monitor:eDP-1
+workspace = 2, persistent:true, monitor:eDP-1
+# workspace = special:scratchpad, monitor:HDMI-A-1, default:true
+
+# I mean like
+exec-once = neovide Documents/TODO.txt

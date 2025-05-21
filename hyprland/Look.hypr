@@ -1,0 +1,32 @@
+general {
+  gaps_in = 5
+  gaps_out = 12, 46, 46, 46
+
+  border_size = 1
+
+  col.active_border = rgba(80808060)
+  col.inactive_border = rgba(80808060)
+}
+
+decoration {
+  rounding = 16
+
+  shadow {
+    enabled = true
+    color = rgba(0, 0, 0, 0.35)
+    render_power = 2
+    range = 32 
+    offset = 0, 0
+  }
+
+  blur {
+    enabled = false
+    size = 6
+    passes = 4
+
+    vibrancy = 0
+    contrast = 3
+
+    special = true
+  }
+}

@@ -1,0 +1,95 @@
+# See https://wiki.hyprland.org/Configuring/Keywords/
+$mainMod = SUPER # Sets "Windows" key as main modifier
+
+$workspaceMod = ALT
+$windowMod    = SUPER
+
+bind = ALT, semicolon, exec, eww close hyprline; eww open hyprline
+
+bind = CTRL ALT, T, exec, kitty
+bind = $windowMod, Q, killactive,
+bind = $windowMod, E, exec, thunar
+
+bind = $windowMod, V, togglefloating,
+bind = $windowMod, C, centerwindow,
+
+bind = $windowMod, Period, exec, ~/wofi-emoji/wofi-emoji
+bind = $windowMod, R, exec, NO_AT_BRIDGE=1 wofi -iaInS drun -W 640 -H 640
+bind = $windowMod, P, pseudo, # dwindle
+bind = $windowMod, U, togglesplit, # dwindle
+bind = $windowMod, O, pin
+bind = $windowMod, O, exec, paplay ~/.config/hypr/lock.wav
+
+bind = $windowMod, h, movefocus, l
+bind = $windowMod, l, movefocus, r
+bind = $windowMod, k, movefocus, u
+bind = $windowMod, j, movefocus, d
+
+bind = $windowMod, TAB, cyclenext
+
+bind = $windowMod SHIFT, h, movewindow, l
+bind = $windowMod SHIFT, l, movewindow, r
+bind = $windowMod SHIFT, k, movewindow, u
+bind = $windowMod SHIFT, j, movewindow, d
+
+bind = $windowMod CTRL, h, moveactive, -32  0
+bind = $windowMod CTRL, l, moveactive,  32  0
+bind = $windowMod CTRL, k, moveactive,  0  -32
+bind = $windowMod CTRL, j, moveactive,  0   32
+
+bind = $windowMod SHIFT CTRL, h, resizeactive, -32  0
+bind = $windowMod SHIFT CTRL, l, resizeactive,  32  0
+bind = $windowMod SHIFT CTRL, k, resizeactive,  0  -32
+bind = $windowMod SHIFT CTRL, j, resizeactive,  0   32
+
+bind = $workspaceMod, h, workspace, e-1
+bind = $workspaceMod, l, workspace, e+1
+
+bind = $workspaceMod SHIFT, h, movetoworkspace, e-1
+bind = $workspaceMod SHIFT, l, movetoworkspace, e+1
+
+bind = $workspaceMod SHIFT, C, movetoworkspace, special:scratchpad
+bind = $workspaceMod, C, togglespecialworkspace, scratchpad
+
+bind = $workspaceMod, 1, workspace, 1
+bind = $workspaceMod, 2, workspace, 2
+bind = $workspaceMod, 3, workspace, 3
+bind = $workspaceMod, 4, workspace, 4
+bind = $workspaceMod, 5, workspace, 5
+bind = $workspaceMod, 6, workspace, 6
+bind = $workspaceMod, 7, workspace, 7
+bind = $workspaceMod, 8, workspace, 8
+bind = $workspaceMod, 9, workspace, 9
+bind = $workspaceMod, 0, workspace, 10
+
+bind = $workspaceMod SHIFT, 1, movetoworkspace, 1
+bind = $workspaceMod SHIFT, 2, movetoworkspace, 2
+bind = $workspaceMod SHIFT, 3, movetoworkspace, 3
+bind = $workspaceMod SHIFT, 4, movetoworkspace, 4
+bind = $workspaceMod SHIFT, 5, movetoworkspace, 5
+bind = $workspaceMod SHIFT, 6, movetoworkspace, 6
+bind = $workspaceMod SHIFT, 7, movetoworkspace, 7
+bind = $workspaceMod SHIFT, 8, movetoworkspace, 8
+bind = $workspaceMod SHIFT, 9, movetoworkspace, 9
+bind = $workspaceMod SHIFT, 0, movetoworkspace, 10
+
+bindm = $mainMod, mouse:272, movewindow
+bindm = $mainMod, mouse:273, resizewindow
+
+bind = ALT, Print, exec, hyprshot -s -m region -f .ocr_im.png; tesseract ~/.ocr_im.png - | wl-copy; notify-send "Tesseract OCR" "Copied text to clipboard"
+bind = , Print, exec, hyprshot -z -m output -o ~/Pictures/hyprshot/
+bind = SHIFT , Print, exec, hyprshot -z -m region -o ~/Pictures/hyprshot/
+
+bind = ,XF86AudioPlay, exec, playerctl play
+bind = ,XF86AudioPause, exec, playerctl pause
+bind = ,XF86AudioNext, exec, playerctl next
+bind = ,XF86AudioPrevious, exec, playerctl previous
+
+bindel = ,XF86AudioRaiseVolume, exec, pamixer -i 10 && dunstify -r 20 -t 1000 -i audio-speaker "$(pamixer --get-default-sink | cut -d' ' -f3- | sed -s 's/\"//g' | tr -d '\n')" -h int:value:`pamixer --get-volume`
+bindel = ,XF86AudioLowerVolume, exec, pamixer -d 10 && dunstify -r 20 -t 1000 -i audio-speaker "$(pamixer --get-default-sink | cut -d' ' -f3- | sed -s 's/\"//g' | tr -d '\n')" -h int:value:`pamixer --get-volume`
+bindel = ,XF86AudioMute, exec, pamixer -t && dunstify -r 20 -t 1000 "$(pamixer --get-default-sink | cut -d' ' -f3- | sed -s 's/\"//g' | tr -d '\n')" `echo $([ $(pamixer --get-mute) = true ] && echo "Muted" || echo "Unmuted")`
+
+#  HACK: Using python to compute shit
+#  TODO: Use a lighter alternative.
+bindel = ,XF86MonBrightnessUp, exec, brightnessctl s 10%+; dunstify -r 21 -t 1000 "Brightness" -h int:value:`echo "print(int($(brightnessctl g).0 / $(brightnessctl m).0 * 100))" | python`
+bindel = ,XF86MonBrightnessDown, exec, brightnessctl s 10%-; dunstify -r 21 -t 1000 "Brightness" -h int:value:`echo "print(int($(brightnessctl g).0 / $(brightnessctl m).0 * 100))" | python`

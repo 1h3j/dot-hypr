@@ -1,0 +1,38 @@
+plugin {
+  hyprbars {
+    bar_height = 36
+
+    bar_text_align = left
+    bar_text_font = Poppins
+    bar_text_size = 9
+
+    bar_padding = 26
+
+    bar_part_of_window = yes
+    bar_precedence_over_border = yes
+
+    bar_color = rgba(0, 0, 0, 1)
+
+    hyprbars-button = rgb(000000) , 20, 󰖭, hyprctl dispatch killactive
+    hyprbars-button = rgb(000000) , 20, 󱂬, hyprctl dispatch togglefloating
+  }
+
+  dynamic-cursors {
+    enabled = true
+    mode = stretch
+
+    stretch {
+      limit = 10000
+    }
+
+    shake {
+      enabled = false
+    }
+  }
+}
+
+windowrulev2 = plugin:hyprbars:nobar,class:^(firefox)$
+windowrulev2 = plugin:hyprbars:nobar,class:^(wofi)$
+
+# windowrulev2 = plugin:invertwindow,class:^(hyprpolkitagent)$
+# windowrulev2 = plugin:invertwindow,class:^(io.github.kaii_lb.Overskride)$

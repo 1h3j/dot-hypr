@@ -32,6 +32,7 @@ plugin {
 }
 
 windowrulev2 = plugin:hyprbars:nobar,class:^(firefox)$
+windowrulev2 = plugin:hyprbars:nobar,class:^(Tor Browser)$
 windowrulev2 = plugin:hyprbars:nobar,class:^(wofi)$
 
 # windowrulev2 = plugin:invertwindow,class:^(hyprpolkitagent)$

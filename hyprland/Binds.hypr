@@ -94,5 +94,5 @@ bind = ,XF86TouchpadOn , exec, dunstify -r 40 -t 1000 "Touchpad On"
 
 #  HACK: Using python to compute shit
 #  TODO: Use a lighter alternative.
-bindel = ,XF86MonBrightnessUp, exec, brightnessctl s 10%+; dunstify -r 21 -t 1000 "Brightness" -h int:value:`echo "print(int($(brightnessctl g).0 / $(brightnessctl m).0 * 100))" | python`
-bindel = ,XF86MonBrightnessDown, exec, brightnessctl s 10%-; dunstify -r 21 -t 1000 "Brightness" -h int:value:`echo "print(int($(brightnessctl g).0 / $(brightnessctl m).0 * 100))" | python`
+bindel = ,XF86MonBrightnessUp, exec, brightnessctl s 10%+ -n 1; dunstify -r 21 -t 1000 "Brightness" -h int:value:`echo "print(int($(brightnessctl g).0 / $(brightnessctl m).0 * 100))" | python`
+bindel = ,XF86MonBrightnessDown, exec, brightnessctl s 10%- -n 1; dunstify -r 21 -t 1000 "Brightness" -h int:value:`echo "print(int($(brightnessctl g).0 / $(brightnessctl m).0 * 100))" | python`

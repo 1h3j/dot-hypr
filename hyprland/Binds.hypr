@@ -13,8 +13,8 @@ bind = $windowMod, E, exec, thunar
 bind = $windowMod, V, togglefloating,
 bind = $windowMod, C, centerwindow,
 
-bind = $windowMod, Period, exec, ~/wofi-emoji/wofi-emoji
-bind = $windowMod, R, exec, NO_AT_BRIDGE=1 wofi -iaInS drun -W 640 -H 640
+bind = $windowMod, Period, exec, killall wofi; ~/wofi-emoji/wofi-emoji
+bind = $windowMod, R, exec, killall wofi; NO_AT_BRIDGE=1 wofi -iaInS drun -W 640 -H 640
 bind = $windowMod, P, pseudo, # dwindle
 bind = $windowMod, U, togglesplit, # dwindle
 bind = $windowMod, O, pin
@@ -88,6 +88,9 @@ bind = ,XF86AudioPrevious, exec, playerctl previous
 bindel = ,XF86AudioRaiseVolume, exec, pamixer -i 10 && dunstify -r 20 -t 1000 -i audio-speaker "$(pamixer --get-default-sink | cut -d' ' -f3- | sed -s 's/\"//g' | tr -d '\n')" -h int:value:`pamixer --get-volume`
 bindel = ,XF86AudioLowerVolume, exec, pamixer -d 10 && dunstify -r 20 -t 1000 -i audio-speaker "$(pamixer --get-default-sink | cut -d' ' -f3- | sed -s 's/\"//g' | tr -d '\n')" -h int:value:`pamixer --get-volume`
 bindel = ,XF86AudioMute, exec, pamixer -t && dunstify -r 20 -t 1000 "$(pamixer --get-default-sink | cut -d' ' -f3- | sed -s 's/\"//g' | tr -d '\n')" `echo $([ $(pamixer --get-mute) = true ] && echo "Muted" || echo "Unmuted")`
+
+bind = ,XF86TouchpadOff, exec, dunstify -r 40 -t 1000 "Touchpad Off"
+bind = ,XF86TouchpadOn , exec, dunstify -r 40 -t 1000 "Touchpad On"
 
 #  HACK: Using python to compute shit
 #  TODO: Use a lighter alternative.

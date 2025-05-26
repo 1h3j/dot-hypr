@@ -6,7 +6,7 @@ Personal dotfiles of my hyprland setup.
 
 ## How do I install ts
 ### Prerequisites
- - You everything listed in REQ.txt to be installed beforehand.
+ - You have everything listed in REQ.txt to be installed beforehand.
 
 > **NOTE**: These commands will rename `hypr` to `hypr_backup` in case you would like to switch if you didn't like my configs :(
 ```

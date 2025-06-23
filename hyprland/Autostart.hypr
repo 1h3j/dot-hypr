@@ -19,3 +19,4 @@ workspace = 2, persistent:true, monitor:eDP-1
 
 # I mean like
 exec-once = kitty sh -c "nvim Documents/TODO.txt" &
+

@@ -1,0 +1,21 @@
+#   ____ ___  _   _ ____ _____  _    _   _ _____ ____   #
+#  / ___/ _ \| \ | / ___|_   _|/ \  | \ | |_   _/ ___|  #
+# | |  | | | |  \| \___ \ | | / _ \ |  \| | | | \___ \  #
+# | |__| |_| | |\  |___) || |/ ___ \| |\  | | |  ___) | #
+#  \____\___/|_| \_|____/ |_/_/   \_\_| \_| |_| |____/  #
+#                                                       #
+
+## MONITORS ##
+$defaultMonitor = eDP-1
+
+## BINDS ##
+$mainMod = SUPER
+
+$workspaceMod = ALT
+$windowMod    = SUPER
+
+## WALLPAPER ##
+$wallpaperPath = ~/Pictures/wallpaper.jpg
+
+## FONT ##
+$monospaceFont = AnonymicePro Nerd Font

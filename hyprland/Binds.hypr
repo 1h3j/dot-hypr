@@ -1,15 +1,19 @@
-# See https://wiki.hyprland.org/Configuring/Keywords/
-$mainMod = SUPER # Sets "Windows" key as main modifier
+#  ____ ___ _   _ ____  ____   #
+# | __ )_ _| \ | |  _ \/ ___|  #
+# |  _ \| ||  \| | | | \___ \  #
+# | |_) | || |\  | |_| |___) | #
+# |____/___|_| \_|____/|____/  #
+#                              #
+                            
+source = ~/.config/hypr/hyprland/Constants.hypr
 
-$workspaceMod = ALT
-$windowMod    = SUPER
 
-bind = ALT, semicolon, exec, eww close hyprline; eww open hyprline
-
+## APPLICATIONS ##
 bind = CTRL ALT, T, exec, kitty
 bind = $windowMod, Q, killactive,
 bind = $windowMod, E, exec, thunar
 
+## WINDOWING ##
 bind = $windowMod, V, togglefloating,
 bind = $windowMod, C, centerwindow,
 
@@ -42,6 +46,7 @@ bind = $windowMod SHIFT CTRL, l, resizeactive,  32  0
 bind = $windowMod SHIFT CTRL, k, resizeactive,  0  -32
 bind = $windowMod SHIFT CTRL, j, resizeactive,  0   32
 
+## WORKSPACES ##
 bind = $workspaceMod, h, workspace, e-1
 bind = $workspaceMod, l, workspace, e+1
 
@@ -76,18 +81,23 @@ bind = $workspaceMod SHIFT, 0, movetoworkspace, 10
 bindm = $mainMod, mouse:272, movewindow
 bindm = $mainMod, mouse:273, resizewindow
 
+## SHORTCUTS ##
 bind = ALT, Print, exec, hyprshot -s -m region -f .ocr_im.png; tesseract ~/.ocr_im.png - | wl-copy; notify-send "Tesseract OCR" "Copied text to clipboard"
-bind = , Print, exec, hyprshot -z -m output -o ~/Pictures/hyprshot/
-bind = SHIFT , Print, exec, hyprshot -z -m region -o ~/Pictures/hyprshot/
+bind = , Print, exec, hyprshot -zm output -o ~/Pictures/hyprshot/
+bind = SHIFT , Print, exec, hyprshot -zm region -o ~/Pictures/hyprshot/
 
+## MEDIA KEYS ##
 bind = ,XF86AudioPlay, exec, playerctl play
 bind = ,XF86AudioPause, exec, playerctl pause
 bind = ,XF86AudioNext, exec, playerctl next
 bind = ,XF86AudioPrevious, exec, playerctl previous
 
-bindel = ,XF86AudioRaiseVolume, exec, pamixer -i 10 && dunstify -r 20 -t 1000 -i audio-speaker "$(pamixer --get-default-sink | cut -d' ' -f3- | sed -s 's/\"//g' | tr -d '\n')" -h int:value:`pamixer --get-volume`
-bindel = ,XF86AudioLowerVolume, exec, pamixer -d 10 && dunstify -r 20 -t 1000 -i audio-speaker "$(pamixer --get-default-sink | cut -d' ' -f3- | sed -s 's/\"//g' | tr -d '\n')" -h int:value:`pamixer --get-volume`
-bindel = ,XF86AudioMute, exec, pamixer -t && dunstify -r 20 -t 1000 "$(pamixer --get-default-sink | cut -d' ' -f3- | sed -s 's/\"//g' | tr -d '\n')" `echo $([ $(pamixer --get-mute) = true ] && echo "Muted" || echo "Unmuted")`
+bindel = ,XF86AudioRaiseVolume, exec, qs ipc call volume popup; pamixer -i 5
+bindel = ,XF86AudioLowerVolume, exec, qs ipc call volume popup; pamixer -d 5
+bindel = ,XF86AudioMute, exec, pamixer -t          
+# bindel = ,XF86AudioRaiseVolume, exec, pamixer -i 10 && qs ipc call volumeControl activate
+# bindel = ,XF86AudioLowerVolume, exec, pamixer -d 10 && qs ipc call volumeControl activate
+# bindel = ,XF86AudioMute, exec, pamixer -t           && qs ipc call volumeControl activate
 
 bind = ,XF86TouchpadOff, exec, dunstify -r 40 -t 1000 "Touchpad Off"
 bind = ,XF86TouchpadOn , exec, dunstify -r 40 -t 1000 "Touchpad On"
@@ -97,4 +107,5 @@ bind = ,XF86TouchpadOn , exec, dunstify -r 40 -t 1000 "Touchpad On"
 bindel = ,XF86MonBrightnessUp, exec, brightnessctl s 10%+ -n 1; dunstify -r 21 -t 1000 "Brightness" -h int:value:`echo "print(int($(brightnessctl g).0 / $(brightnessctl m).0 * 100))" | python`
 bindel = ,XF86MonBrightnessDown, exec, brightnessctl s 10%- -n 1; dunstify -r 21 -t 1000 "Brightness" -h int:value:`echo "print(int($(brightnessctl g).0 / $(brightnessctl m).0 * 100))" | python`
 
+## LID ##
 bindl = , switch:on:Lid Switch,exec,hyprlock --immediate --no-fade-in

@@ -1,3 +1,10 @@
+#  _____ _____ _____ _      #
+# |  ___| ____| ____| |     #
+# | |_  |  _| |  _| | |     #
+# |  _| | |___| |___| |___  #
+# |_|   |_____|_____|_____| #
+#                           #
+
 general {
   resize_on_border = false
 
@@ -14,7 +21,7 @@ animations {
   bezier = almostLinear,0.5,0.5,0.75,1.0
   bezier = quick,0.15,0,0.1,1
 
-  animation = global, 1, 10, default
+  animation = global, 1, 1, default
   animation = border, 1, 5.39, easeOutQuint
   animation = windows, 1, 4.79, easeOutQuint
   animation = windowsIn, 1, 4.1, easeOutQuint, slide

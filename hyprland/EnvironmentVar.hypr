@@ -1,3 +1,10 @@
+#  _____ _   ___     __    #
+# | ____| \ | \ \   / /__  #
+# |  _| |  \| |\ \ / / __| #
+# | |___| |\  | \ V /\__ \ #
+# |_____|_| \_|  \_/ |___/ #
+#                          #
+
 env = XCURSOR_SIZE,46
 env = XCURSOR_THEME,Bibata-Modern-Classic
 env = HYPRCURSOR_SIZE,46

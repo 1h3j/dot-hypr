@@ -1,3 +1,10 @@
+#  ____  _    _   _  ____ ___ _   _ ____   #
+# |  _ \| |  | | | |/ ___|_ _| \ | / ___|  #
+# | |_) | |  | | | | |  _ | ||  \| \___ \  #
+# |  __/| |__| |_| | |_| || || |\  |___) | #
+# |_|   |_____\___/ \____|___|_| \_|____/  #
+#                                          #
+
 plugin {
   hyprbars {
     bar_height = 36
@@ -23,13 +30,52 @@ plugin {
 
     stretch {
       limit = 10000
+      function = negative_quadratic
+      window = 250
     }
 
     shake {
       enabled = false
     }
   }
+
+  hyprfocus {
+    mode = flash
+    # bounce_strength = 0.96
+    fade_opacity = 0.75
+    # slide_height = 16
+  }
+
+	hyprfoci { # https://github.com/pohlrabi404/Hyprfoci
+		# can be from -1 to 1, will be
+			# dynamic ratio with the window instead.
+			# recommend fixed size for image as dynamic can look weird
+			# in some cases.
+			# leave one as 0 to keep original image ratio (image only)
+		# width, height
+		size = 32, 8
+
+		# shift down right (can be from -1 to 1 similarly)
+		pos = 0, -6
+
+		# rounding of 3~4 usually results in circle
+			# depends on monitor type
+			# higher and lower will make it look square-ly
+			# doesn't affect image
+		rounding = 6
+
+		color = rgba(FFFFFFFF)
+
+		#0: left/top, 1: middle, 2: down/right
+		origin = 1, 2
+
+		# Absolute path is needed (~ for home directory is fine)
+		# img = /path/to/your/image.png
+	}
 }
+
+animation = hyprfocusIn, 20, 0.1, linear
+animation = hyprfocusOut, 1, 10, easeOutQuint
 
 windowrulev2 = plugin:hyprbars:nobar,class:^(firefox)$
 windowrulev2 = plugin:hyprbars:nobar,class:^(Tor Browser)$

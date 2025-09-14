@@ -1,5 +1,7 @@
 <h1 align="center">⚙️ dot-hypr</h1>
+
 ![image](https://github.com/user-attachments/assets/5130bf00-64d6-4beb-8678-e7df50673395)
+
 > **NOTE**: This only contains hyprland-related configs. Waybar and others are in their separate repos.
 
 Personal dotfiles of my hyprland setup.

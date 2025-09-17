@@ -46,31 +46,23 @@ plugin {
     # slide_height = 16
   }
 
-	hyprfoci { # https://github.com/pohlrabi404/Hyprfoci
+	hyprfoci {
 		# can be from -1 to 1, will be
 			# dynamic ratio with the window instead.
 			# recommend fixed size for image as dynamic can look weird
-			# in some cases.
 			# leave one as 0 to keep original image ratio (image only)
 		# width, height
-		size = 32, 8
+		size = 196, 0 			
 
-		# shift down right (can be from -1 to 1 similarly)
-		pos = 0, -6
-
-		# rounding of 3~4 usually results in circle
-			# depends on monitor type
-			# higher and lower will make it look square-ly
-			# doesn't affect image
-		rounding = 6
-
-		color = rgba(FFFFFFFF)
+		# shift down right (can be from -1 to 1, similarly)
+		pos = 0, 24
 
 		#0: left/top, 1: middle, 2: down/right
-		origin = 1, 2
+		origin = 1, 2 
 
+        # path to a directory with both.png, left.png, right.png
 		# Absolute path is needed (~ for home directory is fine)
-		# img = /path/to/your/image.png
+		imgs = /home/aidan/Hyprfoci/bongo/
 	}
 }
 
